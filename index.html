@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="referrer" content="no-referrer" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="referrer" content="no-referrer">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Redirecting...</title>
+
+  <!-- Fallback redirect in case JS is blocked -->
+  <meta http-equiv="refresh" content="0; url=https://www.youtube.com/">
+
   <script>
     const params = new URLSearchParams(window.location.search);
     const to = params.get("to");
     if (to) {
-      window.location.href = decodeURIComponent(to);
-    } else {
-      document.write("<h2>No redirect URL provided.</h2>");
+      window.location.replace(decodeURIComponent(to));
     }
   </script>
 </head>
